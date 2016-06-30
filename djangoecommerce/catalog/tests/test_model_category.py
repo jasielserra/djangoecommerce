@@ -1,10 +1,10 @@
 from django.test import TestCase
-from djangoecommerce.catalog.models import Catalog
+from djangoecommerce.catalog.models import Category
 
 class CatalogModelTest(TestCase):
     def setUp(self):
-        self.obj = Catalog(name='Eletrônico', slug='eletronicos')
+        self.obj = Category(name='Eletrônico', slug='eletronicos')
         self.obj.save()
 
     def test_create(self):
-        self.assertTrue(Catalog.objects.exists())
+        self.assertTrue(Category.objects.exists())
