@@ -8,3 +8,7 @@ class CatalogModelTest(TestCase):
 
     def test_create(self):
         self.assertTrue(Category.objects.exists())
+
+
+
+
