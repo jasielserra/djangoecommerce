@@ -12,8 +12,9 @@ class Category(models.Model):
         verbose_name_plural = 'Categorias'
         ordering = ['name']
 
+
 class Product(models.Model):
-    name = models.CharField('nome',max_length=100)
+    name = models.CharField('nome', max_length=100)
     slug = models.SlugField('Identificador', max_length=50)
     category = models.ForeignKey('catalog.Category', verbose_name='Categoria')
     description = models.TextField('Descrição', blank=True)
@@ -25,4 +26,3 @@ class Product(models.Model):
         verbose_name = 'Produto'
         verbose_name_plural = 'Produtos'
         ordering = ['name']
-
