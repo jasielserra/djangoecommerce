@@ -1,5 +1,4 @@
 from datetime import datetime
-
 from django.test import TestCase
 from djangoecommerce.catalog.models import Product, Category
 
@@ -15,4 +14,7 @@ class ProductModelTest(TestCase):
     def test_product_has_created_at(self):
         '''Product must have an auto created_at'''
         self.assertIsInstance(self.product.created_at, datetime)
+
+    def test_str(self):
+        self.assertEqual(str(self.product), 'MacBook Air')
 
