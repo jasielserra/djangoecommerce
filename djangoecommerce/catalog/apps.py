@@ -2,4 +2,6 @@ from django.apps import AppConfig
 
 
 class CatalogConfig(AppConfig):
-    name = 'catalog'
+    name = 'djangoecommerce.catalog'
+    verbose_name = 'Catálogo'
+

@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'test_without_migrations',
     'django_extensions',
     'djangoecommerce.core',
-    'djangoecommerce.catalog',
+    'djangoecommerce.catalog.apps.CatalogConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'America/Bahia'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
