@@ -6,6 +6,11 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ['name', 'slug']
     list_filter = ['created_at', 'modified']
 
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['name','slug', 'category', 'created_at', 'modified']
+    search_fields = ['name','slug','category__name']
+    list_filter = ['created_at', 'modified']
+
 
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Product)
+admin.site.register(Product, ProductAdmin)
