@@ -10,4 +10,4 @@ class ProductListTest(TestCase):
 
     def test_template(self):
         '''Must use products_list.html'''
-        self.assertTemplateUsed(self.resp, 'product_list.html')
+        self.assertTemplateUsed(self.resp, 'catalog/product_list.html')

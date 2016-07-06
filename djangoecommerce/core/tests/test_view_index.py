@@ -1,5 +1,6 @@
 from django.test import TestCase
 
+
 class IndexTest(TestCase):
     def setUp(self):
         self.resp = self.client.get('/')
@@ -11,3 +12,8 @@ class IndexTest(TestCase):
     def test_template(self):
         '''Must use index.html'''
         self.assertTemplateUsed(self.resp, 'index.html')
+
+
+
+
+
