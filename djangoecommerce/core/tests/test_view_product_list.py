@@ -2,7 +2,7 @@ from django.test import TestCase
 
 class ProductListTest(TestCase):
     def setUp(self):
-        self.resp = self.client.get('/produtos/')
+        self.resp = self.client.get('/catalogo/')
 
     def test_get(self):
         '''GET / must return status code 200.'''
