@@ -16,12 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from djangoecommerce.core.views import index, product, contact
+from djangoecommerce.core.views import index, contact
 
 urlpatterns = [
     url(r'^$', index, name='index'),
     url(r'^contato/$', contact, name='contact'),
-    url(r'^produto/$', product, name='product'),
-    url(r'^produtos/', include('djangoecommerce.catalog.urls', namespace='catalog')),
+    url(r'^catalogo/', include('djangoecommerce.catalog.urls', namespace='catalog')),
     url(r'^admin/', admin.site.urls),
 ]
