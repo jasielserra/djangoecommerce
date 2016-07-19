@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .models import Product, Category
-# Create your views here.
 
 def product_list(request):
     context = {'products': Product.objects.all()}
