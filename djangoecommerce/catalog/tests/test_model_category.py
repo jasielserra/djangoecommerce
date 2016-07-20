@@ -1,6 +1,7 @@
 from datetime import datetime
 from django.test import TestCase
 from djangoecommerce.catalog.models import Category
+from django.shortcuts import resolve_url as r
 
 class CategoryModelTest(TestCase):
     def setUp(self):
@@ -16,6 +17,10 @@ class CategoryModelTest(TestCase):
 
     def test_str(self):
         self.assertEqual(str(self.obj), 'Eletrônico')
+
+    def test_get_absolute_url(self):
+        url = r('catalog:category', slug=self.obj.slug)
+        self.assertEqual(url, self.obj.get_absolute_url())
 
 
 

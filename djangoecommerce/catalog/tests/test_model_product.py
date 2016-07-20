@@ -1,6 +1,7 @@
 from datetime import datetime
 from django.test import TestCase
 from djangoecommerce.catalog.models import Product, Category
+from django.shortcuts import resolve_url as r
 
 class ProductModelTest(TestCase):
     def setUp(self):
@@ -17,4 +18,8 @@ class ProductModelTest(TestCase):
 
     def test_str(self):
         self.assertEqual(str(self.product), 'MacBook Air')
+
+    def test_get_absolute_url(self):
+        url = r('catalog:product', slug=self.product.slug)
+        self.assertEqual(url, self.product.get_absolute_url())
 
