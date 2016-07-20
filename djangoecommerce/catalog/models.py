@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.urlresolvers import reverse
+from django.shortcuts import resolve_url as r
 
 
 class Category(models.Model):
@@ -17,7 +17,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('catalog:category', kwargs={'slug':self.slug})
+        return r('catalog:category', slug=self.slug)
 
 
 class Product(models.Model):
@@ -38,4 +38,4 @@ class Product(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('catalog:product', kwargs={'slug': self.slug})
+        return r('catalog:product', slug=self.slug)
