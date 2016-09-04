@@ -39,8 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #libs
     'test_without_migrations',
     'django_extensions',
+    'widget_tweaks',
+    #apps
     'djangoecommerce.core',
     'djangoecommerce.catalog.apps.CatalogConfig',
 ]
