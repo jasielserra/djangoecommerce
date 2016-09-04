@@ -6,7 +6,13 @@ def index(request):
     return render(request,'index.html')
 
 def contact(request):
-    context = {'form': ContactForm()}
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+    else:
+        form = ContactForm()
+    context = {
+        'form':form
+    }
     return render(request,'contact.html', context)
 
 
