@@ -1,4 +1,3 @@
-from django.core.mail import send_mail
 from django.shortcuts import render
 from .forms import ContactForm
 
@@ -12,8 +11,8 @@ def contact(request):
     if form.is_valid():
         form.send_mail()
         success = True
-    else:
-        form = ContactForm()
+   #else:
+   #    form = ContactForm()
 
     context = {
         'form':form,
