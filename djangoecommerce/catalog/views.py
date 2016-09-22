@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from .models import Product, Category
+from django.views import generic
 
-def product_list(request):
-    context = {'products': Product.objects.all()}
-    return render(request, 'catalog/product_list.html', context)
+class ProductListView(generic.ListView):
+    model = Product
+    template_name = 'catalog/product_list.html'
+
+product_list = ProductListView.as_view()
 
 def category(request, slug):
     category = Category.objects.get(slug=slug)
