@@ -22,3 +22,4 @@ class ProductTest(TestCase):
     def test_template(self):
         '''Must use product.html'''
         self.assertTemplateUsed(self.resp, 'catalog/product.html')
+

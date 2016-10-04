@@ -23,3 +23,4 @@ class ProductModelTest(TestCase):
         url = r('catalog:product', slug=self.product.slug)
         self.assertEqual(url, self.product.get_absolute_url())
 
+
