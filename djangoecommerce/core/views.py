@@ -28,6 +28,7 @@ def contact(request):
     }
     return render(request,'contact.html', context)
 
+
 class RegisterView(CreateView):
 
     form_class = UserCreationForm
