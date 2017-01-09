@@ -31,6 +31,9 @@ class ValidloginTest(TestCase):
         data = dict(username=self.user.username, password=123)
         self.resp = self.client.post(r('login'), data)
 
+    def tearDown(self):
+        self.user.delete()
+
     def test_validlogin(self):
         redirect_url = reverse(settings.LOGIN_REDIRECT_URL)
         self.assertRedirects(self.resp, redirect_url)
@@ -46,6 +49,10 @@ class InValidloginTest(TestCase):
         data = dict(username=self.user.username, password=1234)
         self.resp = self.client.post(r('login'), data)
 
+
+    def tearDown(self):
+        self.user.delete()
+
     def test_get(self):
         '''GET / must return status code 200.'''
         self.assertEquals(200, self.resp.status_code)
@@ -55,6 +62,7 @@ class InValidloginTest(TestCase):
         self.assertTemplateUsed(self.resp, 'login.html')
 
     def test_invalidlogin(self):
-        error_msg = ('Por favor, entre com um usuário  e senha corretos.'
+
+        error_msg = ('Por favor, entre com um Apelido / Usuário e senha corretos.'
                      ' Note que ambos os campos diferenciam maiúsculas e minúsculas.')
         self.assertFormError(self.resp, 'form', None, error_msg)
