@@ -1,14 +1,12 @@
 from django.test import TestCase
 from django.shortcuts import resolve_url as r
-from django.contrib.auth import get_user_model
-
-User = get_user_model()
+from djangoecommerce.accounts.models import User
 
 
 
 class RegisterTest(TestCase):
     def setUp(self):
-        self.resp = self.client.get(r('register'))
+        self.resp = self.client.get(r('accounts:register'))
 
     def test_get(self):
         '''GET / must return status code 200.'''
@@ -16,12 +14,12 @@ class RegisterTest(TestCase):
 
     def test_template(self):
         '''Must use index.html'''
-        self.assertTemplateUsed(self.resp, 'register.html')
+        self.assertTemplateUsed(self.resp, 'accounts/register.html')
 
 class RegisterPostValid(TestCase):
     def setUp(self):
-        data = dict(username='jasi', password1='teste123', password2='teste123')
-        self.resp = self.client.post(r('register'), data)
+        data = dict(username='jasi', password1='teste123', password2='teste123', email='test@test.com')
+        self.resp = self.client.post(r('accounts:register'), data)
 
     def test_post(self):
         """ Valid POST should redirect to /index/ """
