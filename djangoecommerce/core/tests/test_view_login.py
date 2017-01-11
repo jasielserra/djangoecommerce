@@ -63,6 +63,6 @@ class InValidloginTest(TestCase):
 
     def test_invalidlogin(self):
 
-        error_msg = ('Por favor, entre com um Apelido / Usuário e senha corretos.'
-                     ' Note que ambos os campos diferenciam maiúsculas e minúsculas.')
+        error_msg = ('Por favor, entre com um Apelido / Usuário  e senha corretos.'
+        ' Note que ambos os campos diferenciam maiúsculas e minúsculas.')
         self.assertFormError(self.resp, 'form', None, error_msg)

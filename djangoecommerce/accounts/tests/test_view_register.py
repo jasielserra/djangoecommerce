@@ -27,3 +27,12 @@ class RegisterPostValid(TestCase):
 
     def test_quantity(self):
         self.assertEquals(User.objects.count(), 1)
+
+
+class RegisterPostInvalid(TestCase):
+    def setUp(self):
+        data = dict(username='jasi', password1='teste123', password2='teste123')
+        self.resp = self.client.post(r('accounts:register'), data)
+
+    def test_post_invalid(self):
+        self.assertFormError(self.resp,'form','email','Este campo é obrigatório.')
