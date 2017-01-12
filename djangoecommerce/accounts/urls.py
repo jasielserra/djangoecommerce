@@ -1,6 +1,7 @@
 from django.conf.urls import url
-from djangoecommerce.accounts.views import register
+from djangoecommerce.accounts.views import register, index
 
 urlpatterns = [
-        url(r'^registro/$', register, name='register')
+        url(r'^$', index, name='index'),
+        url(r'^registro/$', register, name='register'),
         ]
