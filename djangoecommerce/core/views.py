@@ -1,10 +1,8 @@
-from django.contrib.auth.models import User
-from django.shortcuts import render
-from .forms import ContactForm
-from django.views.generic import TemplateView, CreateView
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 from django.contrib.auth import get_user_model
-from django.core.urlresolvers import reverse_lazy
+from django.shortcuts import render
+from django.views.generic import TemplateView
+from .forms import ContactForm
 
 User = get_user_model()
 
@@ -19,6 +17,8 @@ def contact(request):
     if form.is_valid():
         form.send_mail()
         success = True
+    elif request.method == 'POST':
+        messages.error(request, 'Formulário inválido')
    #else:
    #    form = ContactForm()
 
