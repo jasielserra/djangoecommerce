@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^sair/$', logout, {'next_page':'index.html'}, name='logout'),
     url(r'^catalogo/', include('djangoecommerce.catalog.urls', namespace='catalog')),
     url(r'^conta/', include('djangoecommerce.accounts.urls', namespace='accounts')),
+    url(r'^compras/', include('djangoecommerce.checkout.urls', namespace='checkout')),
     url(r'^admin/', admin.site.urls),
 ]

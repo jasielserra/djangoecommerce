@@ -5,7 +5,16 @@ from django.db import models
 class CartItemManager(models.Manager):
 
     def add_item(self, cart_key, product):
-        pass
+        if self.filter(cart_key=cart_key, product=product).exists():
+            created = False
+            cart_item = self.get(cart_key=cart_key, product=product)
+            cart_item.quantity = cart_item.quantity + 1
+            cart_item.save()
+        else:
+            created = True
+            cart_item = CartItem.objects.create(cart_key=cart_key, product=product, price=product.price)
+        return cart_item, created
+
 
 class CartItem(models.Model):
     cart_key = models.CharField('Chave do Carrinho', max_length=40, db_index=True)
