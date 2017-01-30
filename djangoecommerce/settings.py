@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'djangoecommerce.core.apps.CoreConfig',
     'djangoecommerce.catalog.apps.CatalogConfig',
     'djangoecommerce.accounts.apps.AccountsConfig',
-    'djangoecommerce.checkout',
+    'djangoecommerce.checkout.apps.CheckoutConfig',
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -2,4 +2,5 @@ from django.apps import AppConfig
 
 
 class CheckoutConfig(AppConfig):
-    name = 'checkout'
+    name = 'djangoecommerce.checkout'
+    verbose_name = 'Carinho de Compras'
