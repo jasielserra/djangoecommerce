@@ -8,3 +8,4 @@ __pycache__
 staticfiles
 .ecommerce/
 .ipynb_checkpoints/
+local_settings.py

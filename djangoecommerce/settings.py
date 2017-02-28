@@ -17,7 +17,6 @@ from dj_database_url import parse as dburl
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
@@ -27,9 +26,9 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
+
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
 
-DEFAULT_FROM_EMAIL = 'jasielserra@gmail.com'
 
 
 # Application definition
@@ -52,7 +51,7 @@ INSTALLED_APPS = [
     'djangoecommerce.checkout.apps.CheckoutConfig',
 ]
 
-MIDDLEWARE_CLASSES = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -63,7 +62,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'checkout.middleware.cart_item_middleware',
+    'djangoecommerce.checkout.middleware.cart_item_middleware',
 ]
 
 ROOT_URLCONF = 'djangoecommerce.urls'
@@ -138,12 +137,16 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 #Email configuration
 
+
+
+
 EMAIL_BACKEND = config('EMAIL_BACKEND')
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = 'jasielserra@gmail.com'
 
 #auth
 LOGIN_URL = 'login'
